@@ -103,23 +103,5 @@ void solve()
 
     int emparejamientos = min_guards(n);
 
-    // Count isolated nodes on the left side
-    for (int i = 1; i <= n; ++i)
-    {
-        if (!conectadoIzq[i])
-        {
-            emparejamientos++;
-        }
-    }
-
-    // Count isolated nodes on the right side
-    for (int i = 1; i <= m; ++i)
-    {
-        if (!conectadoDer[i])
-        {
-            emparejamientos++;
-        }
-    }
-
     std::cout << emparejamientos << std::endl;
 }
