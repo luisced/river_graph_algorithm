@@ -1,5 +1,8 @@
 #include "classes/queue/queue.h"
 #include "classes/double_linked_list/list.h"
+#include <iostream>
+#include <climits>
+#include <cstring>
 
 const int MAX = 1e5; // Ajusta esto al máximo tamaño de tu grafo
 LinkedList<int> adj[MAX];
@@ -78,10 +81,16 @@ int min_guards(int n)
 
 void solve()
 {
-
     int n, m, p;
     std::cin >> n >> m >> p;
-    std::vector<bool> conectadoIzq(n + 1, false), conectadoDer(m + 1, false);
+
+    bool conectadoIzq[n + 1], conectadoDer[m + 1];
+
+    // Initialize the arrays to false
+    for (int i = 0; i <= n; ++i)
+        conectadoIzq[i] = false;
+    for (int i = 0; i <= m; ++i)
+        conectadoDer[i] = false;
 
     for (int i = 0; i < p; ++i)
     {
